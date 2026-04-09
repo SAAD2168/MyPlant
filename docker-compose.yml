@@ -1,0 +1,30 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - model_data:/app/model  # Mount the named volume to /app/model
+      - ./backend:/app  # Mount the entire backend directory
+    depends_on:
+      - model  # Ensure the model container is started first
+
+  model:
+    build:
+      context: ./model
+      dockerfile: Dockerfile
+    volumes:
+      - model_data:/data:ro # Mount as read-only
+
+
+volumes:
+  model_data:  # Define the named volume
