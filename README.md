@@ -28,4 +28,6 @@ docker-compose up –build
 
 * **Low Footprint:** Specifically designed to run within strict RAM and thermal constraints of embedded devices.
 
-* **Dataset:** Validated on the **PlantVillage** dataset for robust multi-class plant disease classification.
+* **Dataset:** Architecture is validated on the **PlantVillage** and **Plant Leaf from Bangladesh** datasets for robust multi-class plant disease classification.
+
+Please refer to Notebooks folder
